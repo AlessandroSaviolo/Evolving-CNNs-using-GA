@@ -1,2 +1,2 @@
 
-# Evolving Architectures for Convolutional Neural Networks using the Genetic Algorithm
+# Evolving Architectures for CNNs using the GA
