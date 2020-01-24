@@ -21,7 +21,9 @@ The proposed method is based on the genetic algorithm since it does not require 
 The proposed algorithm represents an intelligent exploitation of a random search. Although randomized, the proposed algorithm is by no means random. Instead, it exploits historical information to direct the search into the region of better performance within the search space.
 Over the course of many generations, the algorithm picks out the layers of the CNN architecture. It learns through random exploration and slowly begins to exploit its findings to select higher performing models. It receives the testing accuracy as a means of comparison between architectures and ultimately selects the best architecture. The entire process goes on for many generations until a fully trained suitable CNN model is generated.
 
-
+<p align="center">
+  <img width="400" height="266" src="https://github.com/AlessandroSaviolo/Instance-Segmentation-using-Detectron2/blob/master/results/result3.png">
+</p>
 
 ## 2. Project Structure
 
