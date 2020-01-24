@@ -12,29 +12,32 @@ The proposed method is based on the genetic algorithm since it does not require 
 
 ## 1. Dataset
 
-- [Energy Efficiency (regression)](https://drive.google.com/open?id=1m28XzC0ve9VcNv1W8TlKV5q4yKnJEKwR)
+The method is tested using the [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html), in which the number of classes is 10. The numbers of training and validation images are, respectively, 50000 and 10000, and the size of each image is 32x32.
 
-- [Ionosphere (classification)](https://drive.google.com/open?id=1YqOs39iYhChHuNVq0rmbAscAQ-xr1_y_)
+Two experimental scenarios are considered:
+
+- Default Scenario: uses the default numbers of the training and validation images
+
+- Small-data Scenario: assumes that only 5000 images are available. In particular, a randomly sample of 4500 images is used for the training and the remaining 500 images are employed for the validation
 
 ## 2. Algorithm and Flow Chart
 
 The proposed algorithm represents an intelligent exploitation of a random search. Although randomized, the proposed algorithm is by no means random. Instead, it exploits historical information to direct the search into the region of better performance within the search space.
+
 Over the course of many generations, the algorithm picks out the layers of the CNN architecture. It learns through random exploration and slowly begins to exploit its findings to select higher performing models. It receives the testing accuracy as a means of comparison between architectures and ultimately selects the best architecture. The entire process goes on for many generations until a fully trained suitable CNN model is generated.
 
 <p align="center">
   <img src="https://github.com/AlessandroSaviolo/Evolving-CNNs-using-GA/blob/master/flowchart.png" width="400">
 </p>
 
-## 2. Project Structure
+## 3. Project Structure
 
-- `main.py` : main function, use it to change task ('r' or 'c') and hyperparameters (i.e., learning rate, number of epochs)
+- `main.py` : main function, use it to set the hyperparameters (i.e., learning rate, number of epochs). It also contains the main structure of the genetic algorithm
 
-- `model.py` : contains the regression and classification neural network models
+- `network.py` : contains the network class (i.e., invidual belonging to the population) and the transformations applied by the genetic algorithm (e.g., mutation)
 
-- `regression.py` : run regression using the relative model from model.py, use it to change the hyperparameters of the model (i.e., number of neurons)
+- `topology.py` : contains the layer class (e.g., convolutional, pooling, dense). It also contains the block class, where each block refers to a group of sequential layers in a network
 
-- `classification.py` : run classification using the relative model from model.py, use it to change the hyperparameters of the model (i.e., number of neurons)
+- `inout.py` : contains the input convolutional neural network that need to be optimized
 
-- `utilities.py` : contains plot functions and common functions among the different files (i.e., load dataset which is used both for regression and classification)
-
-- `deep_classification.py` : deep classifier used to plot the distribution of latent features at different training stages. It contains also the deep model
+- `utilities.py` : contains plot functions and common functions among the different files (e.g., load dataset)
