@@ -1,0 +1,731 @@
+Genetic Algorithm
+----->Initializing Population
+Training parent_0
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 2s 2ms/step - loss: 2.6259 - acc: 0.1580 - val_loss: 2.3182 - val_acc: 0.1200
+Epoch 2/3
+1000/1000 [==============================] - 2s 2ms/step - loss: 1.8815 - acc: 0.3380 - val_loss: 1.9496 - val_acc: 0.2900
+Epoch 3/3
+1000/1000 [==============================] - 2s 2ms/step - loss: 1.5116 - acc: 0.4830 - val_loss: 3.0469 - val_acc: 0.1650
+SUMMARY OF parent_0
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_1 (Conv2D)            (None, 32, 32, 32)        896
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 30, 30, 32)        9248
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 15, 15, 32)        0
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 7200)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               921728
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                1290
+=================================================================
+Total params: 933,162
+Trainable params: 933,162
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  3.0468814468383787
+
+-------------------------------------
+Creating individual net_1
+-------------------------------------
+
+----->Strong Mutation
+Block Mutation
+[(0, 0), (1, 2)]
+Creating a new block with two Convolutional layers and a Pooling layer
+Layer Mutation
+Splitting Conv2D layer at index 1
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Mutating Conv2D layer:
+-->changed self.padding from  valid  to  same
+Mutating MaxPooling2D layer:
+-->changed self.name from  MaxPooling2D  to  AveragePooling2D
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  16
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Mutating MaxPooling2D layer:
+-->changed self.name from  MaxPooling2D  to  AveragePooling2D
+Mutating FullyConnected layer:
+-->changed self.units from  128  to  256
+Training net_1
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 4s 4ms/step - loss: 2.5362 - acc: 0.1470 - val_loss: 2.2876 - val_acc: 0.0700
+Epoch 2/3
+1000/1000 [==============================] - 4s 4ms/step - loss: 2.2455 - acc: 0.1670 - val_loss: 2.1790 - val_acc: 0.2050
+Epoch 3/3
+1000/1000 [==============================] - 4s 4ms/step - loss: 2.0001 - acc: 0.2750 - val_loss: 2.1584 - val_acc: 0.2000
+SUMMARY OF net_1
+Model: "sequential_2"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_3 (Conv2D)            (None, 32, 32, 64)        1792
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 32, 32, 32)        18464
+_________________________________________________________________
+average_pooling2d_1 (Average (None, 16, 16, 32)        0
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 14, 14, 64)        18496
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 14, 14, 16)        9232
+_________________________________________________________________
+conv2d_7 (Conv2D)            (None, 14, 14, 64)        9280
+_________________________________________________________________
+average_pooling2d_2 (Average (None, 7, 7, 64)          0
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 3136)              0
+_________________________________________________________________
+dense_3 (Dense)              (None, 256)               803072
+_________________________________________________________________
+dense_4 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 862,906
+Trainable params: 862,906
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.158364658355713
+
+-------------------------------------
+Creating individual net_2
+-------------------------------------
+
+----->Strong Mutation
+Block Mutation
+[(0, 0), (1, 2)]
+Creating a new block with two Convolutional layers and a Pooling layer
+Layer Mutation
+Splitting Conv2D layer at index 1
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Mutating MaxPooling2D layer:
+-->changed self.padding from  same  to  valid
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  32
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  128
+Mutating FullyConnected layer:
+-->changed self.units from  128  to  256
+Training net_2
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 9s 9ms/step - loss: 2.9179 - acc: 0.1290 - val_loss: 2.2939 - val_acc: 0.0950
+Epoch 2/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.2981 - acc: 0.1580 - val_loss: 2.4833 - val_acc: 0.0750
+Epoch 3/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 2.2161 - acc: 0.1990 - val_loss: 2.1947 - val_acc: 0.2250
+SUMMARY OF net_2
+Model: "sequential_3"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_8 (Conv2D)            (None, 32, 32, 64)        1792
+_________________________________________________________________
+conv2d_9 (Conv2D)            (None, 30, 30, 32)        18464
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 15, 15, 32)        0
+_________________________________________________________________
+conv2d_10 (Conv2D)           (None, 15, 15, 128)       36992
+_________________________________________________________________
+conv2d_11 (Conv2D)           (None, 15, 15, 32)        36896
+_________________________________________________________________
+conv2d_12 (Conv2D)           (None, 15, 15, 128)       36992
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 8, 8, 128)         0
+_________________________________________________________________
+flatten_3 (Flatten)          (None, 8192)              0
+_________________________________________________________________
+dense_5 (Dense)              (None, 256)               2097408
+_________________________________________________________________
+dense_6 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 2,231,114
+Trainable params: 2,231,114
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.1947326183319094
+
+-------------------------------------
+Initial Population:
+net_1 :  2.158364658355713
+net_2 :  2.1947326183319094
+parent_0 :  3.0468814468383787
+-------------------------------------
+
+
+-------------------------------------
+Generation 1
+-------------------------------------
+
+Creating Child 0
+----->Elitism selection
+Selected net_1 and net_2 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  128
+Child has been mutated
+Training net_3
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 3.1392 - acc: 0.1500 - val_loss: 3.0999 - val_acc: 0.1550
+Epoch 2/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.1084 - acc: 0.2780 - val_loss: 2.2486 - val_acc: 0.1750
+Epoch 3/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 1.7679 - acc: 0.4150 - val_loss: 2.0289 - val_acc: 0.2900
+SUMMARY OF net_3
+Model: "sequential_4"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_13 (Conv2D)           (None, 32, 32, 128)       3584
+_________________________________________________________________
+conv2d_14 (Conv2D)           (None, 30, 30, 32)        36896
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 15, 15, 32)        0
+_________________________________________________________________
+flatten_4 (Flatten)          (None, 7200)              0
+_________________________________________________________________
+dense_7 (Dense)              (None, 256)               1843456
+_________________________________________________________________
+dense_8 (Dense)              (None, 10)                2570
+=================================================================
+Total params: 1,886,506
+Trainable params: 1,886,506
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.0289092540740965
+----->Evolution: Child net_3 with fitness 2.0289092540740965 replaces parent parent_0 with fitness 3.0468814468383787
+
+Creating Child 1
+----->Elitism selection
+Selected parent_0 and net_1 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Splitting Conv2D layer at index 2
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  128
+Mutating AveragePooling2D layer:
+-->changed self.padding from  same  to  valid
+Mutating Conv2D layer:
+-->changed self.filters from  16  to  32
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  16
+Mutating AveragePooling2D layer:
+-->changed self.name from  AveragePooling2D  to  MaxPooling2D
+Mutating FullyConnected layer:
+-->changed self.units from  256  to  512
+Child has been mutated
+Training net_4
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 7s 7ms/step - loss: 2.3426 - acc: 0.1350 - val_loss: 2.3832 - val_acc: 0.1400
+Epoch 2/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 2.1781 - acc: 0.2090 - val_loss: 2.1141 - val_acc: 0.2450
+Epoch 3/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 1.9379 - acc: 0.3200 - val_loss: 2.3498 - val_acc: 0.1700
+SUMMARY OF net_4
+Model: "sequential_5"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_15 (Conv2D)           (None, 32, 32, 128)       3584
+_________________________________________________________________
+conv2d_16 (Conv2D)           (None, 32, 32, 32)        36896
+_________________________________________________________________
+average_pooling2d_3 (Average (None, 16, 16, 32)        0
+_________________________________________________________________
+conv2d_17 (Conv2D)           (None, 14, 14, 64)        18496
+_________________________________________________________________
+conv2d_18 (Conv2D)           (None, 14, 14, 32)        18464
+_________________________________________________________________
+conv2d_19 (Conv2D)           (None, 14, 14, 32)        9248
+_________________________________________________________________
+conv2d_20 (Conv2D)           (None, 14, 14, 16)        4624
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 7, 7, 16)          0
+_________________________________________________________________
+flatten_5 (Flatten)          (None, 784)               0
+_________________________________________________________________
+dense_9 (Dense)              (None, 512)               401920
+_________________________________________________________________
+dense_10 (Dense)             (None, 10)                5130
+=================================================================
+Total params: 498,362
+Trainable params: 498,362
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.3497649002075196
+----->Evolution: Child net_4 with fitness 2.3497649002075196 is discarded
+
+-------------------------------------
+Generation 2
+-------------------------------------
+
+Creating Child 0
+----->Tournament selection
+Selected parent_0 and net_1 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  128
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Child has been mutated
+Training net_3
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 9s 9ms/step - loss: 3.1879 - acc: 0.1300 - val_loss: 2.1451 - val_acc: 0.2500
+Epoch 2/3
+1000/1000 [==============================] - 8s 8ms/step - loss: 2.2669 - acc: 0.2570 - val_loss: 3.1800 - val_acc: 0.1850
+Epoch 3/3
+1000/1000 [==============================] - 8s 8ms/step - loss: 1.7932 - acc: 0.3640 - val_loss: 2.1017 - val_acc: 0.2950
+SUMMARY OF net_3
+Model: "sequential_6"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_21 (Conv2D)           (None, 32, 32, 128)       3584
+_________________________________________________________________
+conv2d_22 (Conv2D)           (None, 32, 32, 64)        73792
+_________________________________________________________________
+average_pooling2d_4 (Average (None, 16, 16, 64)        0
+_________________________________________________________________
+flatten_6 (Flatten)          (None, 16384)             0
+_________________________________________________________________
+dense_11 (Dense)             (None, 256)               4194560
+_________________________________________________________________
+dense_12 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 4,274,506
+Trainable params: 4,274,506
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.101689214706421
+----->Evolution: Child net_3 with fitness 2.101689214706421 replaces parent net_2 with fitness 2.1947326183319094
+
+Creating Child 1
+----->Tournament selection
+Selected parent_0 and parent_0 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Parameters Mutation
+Mutating MaxPooling2D layer:
+-->changed self.padding from  valid  to  same
+Mutating FullyConnected layer:
+-->changed self.units from  256  to  512
+Child has been mutated
+Training net_4
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 7s 7ms/step - loss: 2.8565 - acc: 0.1740 - val_loss: 8.6546 - val_acc: 0.0700
+Epoch 2/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 2.1402 - acc: 0.3390 - val_loss: 2.4670 - val_acc: 0.2000
+Epoch 3/3
+1000/1000 [==============================] - 7s 7ms/step - loss: 1.5346 - acc: 0.4700 - val_loss: 2.5484 - val_acc: 0.1800
+SUMMARY OF net_4
+Model: "sequential_7"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_23 (Conv2D)           (None, 32, 32, 128)       3584
+_________________________________________________________________
+conv2d_24 (Conv2D)           (None, 30, 30, 32)        36896
+_________________________________________________________________
+max_pooling2d_6 (MaxPooling2 (None, 15, 15, 32)        0
+_________________________________________________________________
+flatten_7 (Flatten)          (None, 7200)              0
+_________________________________________________________________
+dense_13 (Dense)             (None, 512)               3686912
+_________________________________________________________________
+dense_14 (Dense)             (None, 10)                5130
+=================================================================
+Total params: 3,732,522
+Trainable params: 3,732,522
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.5483790826797486
+----->Evolution: Child net_4 with fitness 2.5483790826797486 is discarded
+
+-------------------------------------
+Generation 3
+-------------------------------------
+
+Creating Child 0
+----->Proportionate selection
+Selected net_2 and net_1 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Splitting Conv2D layer at index 1
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Mutating Conv2D layer:
+-->changed self.padding from  valid  to  same
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Mutating FullyConnected layer:
+-->changed self.units from  256  to  128.0
+Child has been mutated
+
+INDIVIDUAL ABORTED, CREATING A NEW ONE
+
+----->Crossover
+Block Mutation
+[(0, 0), (1, 2)]
+Creating a new block with two Convolutional layers and a Pooling layer
+Layer Mutation
+Changing Pooling layer at index 0 with Conv2D layer
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  32
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  16
+Mutating AveragePooling2D layer:
+-->changed self.name from  AveragePooling2D  to  MaxPooling2D
+Mutating Conv2D layer:
+-->changed self.filters from  128  to  256
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Training net_3
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 11s 11ms/step - loss: 14.2582 - acc: 0.0910 - val_loss: 14.4257 - val_acc: 0.1050
+Epoch 2/3
+1000/1000 [==============================] - 20s 20ms/step - loss: 14.5224 - acc: 0.0990 - val_loss: 14.4257 - val_acc: 0.1050
+Epoch 3/3
+1000/1000 [==============================] - 17s 17ms/step - loss: 14.5224 - acc: 0.0990 - val_loss: 14.4257 - val_acc: 0.1050
+SUMMARY OF net_3
+Model: "sequential_9"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_31 (Conv2D)           (None, 32, 32, 32)        896
+_________________________________________________________________
+conv2d_32 (Conv2D)           (None, 32, 32, 16)        4624
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 16, 16, 16)        0
+_________________________________________________________________
+conv2d_33 (Conv2D)           (None, 16, 16, 256)       37120
+_________________________________________________________________
+conv2d_34 (Conv2D)           (None, 16, 16, 256)       590080
+_________________________________________________________________
+conv2d_35 (Conv2D)           (None, 7, 7, 128)         295040
+_________________________________________________________________
+flatten_9 (Flatten)          (None, 6272)              0
+_________________________________________________________________
+dense_16 (Dense)             (None, 256)               1605888
+_________________________________________________________________
+dense_17 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 2,536,218
+Trainable params: 2,536,218
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  14.42569522857666
+----->Evolution: Child net_3 with fitness 14.42569522857666 is discarded
+
+Creating Child 1
+----->Proportionate selection
+Selected net_1 and net_2 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  128  to  256
+Mutating AveragePooling2D layer:
+-->changed self.padding from  same  to  valid
+Child has been mutated
+Training net_4
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 14s 14ms/step - loss: 14.1805 - acc: 0.0940 - val_loss: 14.4257 - val_acc: 0.1050
+Epoch 2/3
+1000/1000 [==============================] - 12s 12ms/step - loss: 14.5224 - acc: 0.0990 - val_loss: 14.4257 - val_acc: 0.1050
+Epoch 3/3
+1000/1000 [==============================] - 16s 16ms/step - loss: 14.5224 - acc: 0.0990 - val_loss: 14.4257 - val_acc: 0.1050
+SUMMARY OF net_4
+Model: "sequential_10"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_36 (Conv2D)           (None, 32, 32, 256)       7168
+_________________________________________________________________
+conv2d_37 (Conv2D)           (None, 32, 32, 64)        147520
+_________________________________________________________________
+average_pooling2d_7 (Average (None, 16, 16, 64)        0
+_________________________________________________________________
+flatten_10 (Flatten)         (None, 16384)             0
+_________________________________________________________________
+dense_18 (Dense)             (None, 256)               4194560
+_________________________________________________________________
+dense_19 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 4,351,818
+Trainable params: 4,351,818
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  14.42569522857666
+----->Evolution: Child net_4 with fitness 14.42569522857666 is discarded
+
+-------------------------------------
+Generation 4
+-------------------------------------
+
+Creating Child 0
+----->Tournament selection
+Selected parent_0 and net_2 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Parameters Mutation
+Mutating AveragePooling2D layer:
+-->changed self.name from  AveragePooling2D  to  MaxPooling2D
+Mutating FullyConnected layer:
+-->changed self.units from  256  to  128.0
+Child has been mutated
+
+INDIVIDUAL ABORTED, CREATING A NEW ONE
+
+----->Crossover
+Block Mutation
+[(0, 0), (1, 2)]
+Creating a new block with two Convolutional layers and a Pooling layer
+Layer Mutation
+Changing Pooling layer at index 0 with Conv2D layer
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  128  to  64
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  16
+Mutating MaxPooling2D layer:
+-->changed self.padding from  valid  to  same
+Mutating Conv2D layer:
+-->changed self.filters from  32  to  64
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Training net_3
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 2.9446 - acc: 0.1500 - val_loss: 3.1757 - val_acc: 0.1000
+Epoch 2/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.2292 - acc: 0.1880 - val_loss: 2.0710 - val_acc: 0.2800
+Epoch 3/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.0623 - acc: 0.2890 - val_loss: 1.9787 - val_acc: 0.3000
+SUMMARY OF net_3
+Model: "sequential_12"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_40 (Conv2D)           (None, 32, 32, 64)        1792
+_________________________________________________________________
+conv2d_41 (Conv2D)           (None, 30, 30, 16)        9232
+_________________________________________________________________
+max_pooling2d_9 (MaxPooling2 (None, 15, 15, 16)        0
+_________________________________________________________________
+conv2d_42 (Conv2D)           (None, 15, 15, 256)       37120
+_________________________________________________________________
+conv2d_43 (Conv2D)           (None, 15, 15, 64)        147520
+_________________________________________________________________
+conv2d_44 (Conv2D)           (None, 7, 7, 32)          18464
+_________________________________________________________________
+flatten_12 (Flatten)         (None, 1568)              0
+_________________________________________________________________
+dense_21 (Dense)             (None, 256)               401664
+_________________________________________________________________
+dense_22 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 618,362
+Trainable params: 618,362
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  1.9787270355224609
+----->Evolution: Child net_3 with fitness 1.9787270355224609 replaces parent net_1 with fitness 2.158364658355713
+
+Creating Child 1
+----->Tournament selection
+Selected net_1 and net_2 for reproduction
+----->Crossover
+Child has been created
+----->Soft Mutation
+Layer Mutation
+Splitting Conv2D layer at index 0
+Parameters Mutation
+Mutating Conv2D layer:
+-->changed self.filters from  64  to  128
+Mutating MaxPooling2D layer:
+-->changed self.padding from  same  to  valid
+Mutating Conv2D layer:
+-->changed self.padding from  same  to  valid
+Child has been mutated
+Training net_4
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 8s 8ms/step - loss: 2.5167 - acc: 0.1040 - val_loss: 2.2539 - val_acc: 0.1350
+Epoch 2/3
+1000/1000 [==============================] - 7s 7ms/step - loss: 2.2657 - acc: 0.1800 - val_loss: 2.8756 - val_acc: 0.1600
+Epoch 3/3
+1000/1000 [==============================] - 7s 7ms/step - loss: 2.1404 - acc: 0.2510 - val_loss: 2.2994 - val_acc: 0.1900
+SUMMARY OF net_4
+Model: "sequential_13"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_45 (Conv2D)           (None, 32, 32, 128)       3584
+_________________________________________________________________
+conv2d_46 (Conv2D)           (None, 30, 30, 16)        18448
+_________________________________________________________________
+max_pooling2d_10 (MaxPooling (None, 15, 15, 16)        0
+_________________________________________________________________
+conv2d_47 (Conv2D)           (None, 15, 15, 128)       18560
+_________________________________________________________________
+conv2d_48 (Conv2D)           (None, 15, 15, 128)       147584
+_________________________________________________________________
+conv2d_49 (Conv2D)           (None, 13, 13, 64)        73792
+_________________________________________________________________
+conv2d_50 (Conv2D)           (None, 6, 6, 32)          18464
+_________________________________________________________________
+flatten_13 (Flatten)         (None, 1152)              0
+_________________________________________________________________
+dense_23 (Dense)             (None, 256)               295168
+_________________________________________________________________
+dense_24 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 578,170
+Trainable params: 578,170
+Non-trainable params: 0
+_________________________________________________________________
+None
+FITNESS:  2.29937292098999
+----->Evolution: Child net_4 with fitness 2.29937292098999 is discarded
+
+
+-------------------------------------
+Final Population
+-------------------------------------
+
+net_1 :  1.9787270355224609
+parent_0 :  2.0289092540740965
+net_2 :  2.101689214706421
+
+-------------------------------------
+Stats
+Best individual at generation 1 has fitness 2.158364658355713 and parameters 862906
+Best individual at generation 2 has fitness 2.0289092540740965 and parameters 1886506
+Best individual at generation 3 has fitness 2.0289092540740965 and parameters 1886506
+Best individual at generation 4 has fitness 2.0289092540740965 and parameters 1886506
+Best individual at generation 5 has fitness 1.9787270355224609 and parameters 618362
+-------------------------------------
+
+Train on 1000 samples, validate on 200 samples
+Epoch 1/3
+1000/1000 [==============================] - 6s 6ms/step - loss: 2.6393 - acc: 0.1150 - val_loss: 2.2679 - val_acc: 0.1200
+Epoch 2/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.2652 - acc: 0.1870 - val_loss: 2.9440 - val_acc: 0.1550
+Epoch 3/3
+1000/1000 [==============================] - 5s 5ms/step - loss: 2.0741 - acc: 0.2450 - val_loss: 3.0250 - val_acc: 0.1850
+
+
+-------------------------------------
+The initial CNN has been evolved successfully in the individual net_1
+-------------------------------------
+
+
+
+-------------------------------------
+Summary of initial CNN
+Model: "sequential_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_1 (Conv2D)            (None, 32, 32, 32)        896
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 30, 30, 32)        9248
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 15, 15, 32)        0
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 7200)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               921728
+_________________________________________________________________
+dense_2 (Dense)              (None, 10)                1290
+=================================================================
+Total params: 933,162
+Trainable params: 933,162
+Non-trainable params: 0
+_________________________________________________________________
+None
+Fitness of initial CNN: 3.0468814468383787
+
+
+-------------------------------------
+Summary of evolved individual
+Model: "sequential_14"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_51 (Conv2D)           (None, 32, 32, 64)        1792
+_________________________________________________________________
+conv2d_52 (Conv2D)           (None, 30, 30, 16)        9232
+_________________________________________________________________
+max_pooling2d_11 (MaxPooling (None, 15, 15, 16)        0
+_________________________________________________________________
+conv2d_53 (Conv2D)           (None, 15, 15, 256)       37120
+_________________________________________________________________
+conv2d_54 (Conv2D)           (None, 15, 15, 64)        147520
+_________________________________________________________________
+conv2d_55 (Conv2D)           (None, 7, 7, 32)          18464
+_________________________________________________________________
+flatten_14 (Flatten)         (None, 1568)              0
+_________________________________________________________________
+dense_25 (Dense)             (None, 256)               401664
+_________________________________________________________________
+dense_26 (Dense)             (None, 10)                2570
+=================================================================
+Total params: 618,362
+Trainable params: 618,362
+Non-trainable params: 0
+_________________________________________________________________
+None
+Fitness of the evolved individual: 3.0250408458709717
+-------------------------------------
