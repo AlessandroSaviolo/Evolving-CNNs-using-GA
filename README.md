@@ -42,7 +42,7 @@ Over the course of many generations, the algorithm picks out the layers of the C
 
 ## 4. License
 
-Copyright (C) 2021 Alessandro Saviolo, [FlexSight SRL](http://www.flexsight.eu/), Padova, Italy
+Copyright (C) 2021 Alessandro Saviolo
 ```
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
