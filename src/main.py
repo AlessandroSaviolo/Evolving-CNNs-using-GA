@@ -41,7 +41,7 @@ def selection(k, population, num_population):
             cum_sum += population[i].fitness
         perc_range = []
         for i in range(num_population):
-            count = int(100 * population[i].fitness / cum_sum)
+            count = 100 - int(100 * population[i].fitness / cum_sum)
             for j in range(count):
                 perc_range.append(i)
         i, j = sample(range(1, len(perc_range)), 2)
